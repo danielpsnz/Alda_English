@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
-const Card = ({ title, description, colors, onPress }) => {
+const ExerciseCard = ({ title, description, colors, onPress }) => {
   return (
       <View style={styles.card}>
         <LinearGradient
@@ -30,6 +30,8 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
     marginVertical: 6,
     overflow: 'hidden',
+    height: 50,
+    width: 350,
   },
   gradient: {
     borderRadius: 8,
@@ -37,7 +39,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#FFFFFF',
-    fontSize: 20,
+    fontSize: 16,
     fontWeight: 'bold',
   },
   description: {
@@ -47,4 +49,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Card;
+export default ExerciseCard;
