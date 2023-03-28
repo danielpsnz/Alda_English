@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import { RadioButton } from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
 
 const Lesson = () => {
-    const navigation = useNavigation();
     const [selectedAnswers, setSelectedAnswers] = useState([]);
+    const [submitDisabled, setSubmitDisabled] = useState(true);
     const [showRadio, setShowRadio] = useState(false);
     const handleRadio = () => {
     setShowRadio(true);
@@ -94,7 +93,6 @@ const Lesson = () => {
       };
     
       const handleSubmit = () => {
-        setIsLoading(true);
         let newMarks = marks;
         questions.forEach((question) => {
           const selectedAnswer = selectedAnswers.find((answer) => answer.questionId === question.id);
@@ -104,9 +102,10 @@ const Lesson = () => {
         });
         setMarks(newMarks);
         setShowResults(true);
-        setIsLoading(false);
-        const message = newMarks === questions.length ? 'Congratulations! You got all the answers correct.' : 'You got some answers wrong. Keep reading!.';
+        const message =
+          newMarks >= 4 ? 'Congratulations! You passed the test.' : 'You got some answers wrong. Keep reading!.';
         Alert.alert('Results', message);
+        setSubmitDisabled(false);
       };
 
     return (
@@ -162,37 +161,44 @@ const Lesson = () => {
             lie elsewhere.
             </Text>
 
-            <TouchableOpacity style={styles.submitButton} onPress={handleRadio}>
-                <Text style={styles.submitButtonText}>Show Questions (Radio)</Text>
+            <TouchableOpacity style={[styles.submitButton, styles.questionButton]} onPress={handleRadio}>
+            <Text style={styles.submitButtonText}>Show Questions</Text>
             </TouchableOpacity>
-
-
-            {showRadio &&
-            question.options.map((option) => (
+            
+            <View>
+            {showRadio && questions.map((question) => (
+            <View key={question.id} style={styles.question}>
+                <Text style={styles.questionText}>{question.question}</Text>
+                {question.options.map((option) => (
                 <View key={option.id} style={styles.answerOption}>
-                <RadioButton
+                    <View style={styles.options}>
+                    <RadioButton
                     value={option.id}
-                    status={selectedAnswers.some(
-                    (answer) => answer.questionId === question.id && answer.optionId === option.id
-                    )
+                    status={selectedAnswers.some((answer) => answer.questionId === question.id && answer.optionId === option.id)
                     ? 'checked'
                     : 'unchecked'}
                     onPress={() => handleAnswer(question.id, option.id)}
-                />
-                <Text style={styles.answerText}>{option.text}</Text>
+                    />
+                    </View>
+                    <Text style={styles.answerText}>{option.text}</Text>
                 </View>
+                ))}
+            </View>
             ))}
+            {submitDisabled && (
+            <View>
+            <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
+            <Text style={styles.submitButtonText}>Submit answers</Text>
+            </TouchableOpacity>
+            </View>
+            )}
+            </View>
 
-
-        <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
-          <Text style={styles.submitButtonText}>Submit Answers</Text>
-        </TouchableOpacity>
-
-        {showResults && (
-          <View style={styles.resultsContainer}>
-            <Text style={styles.resultsText}>You scored {marks} out of {questions.length}.</Text>
-          </View>
-        )}
+            {showResults && (
+            <View style={styles.resultsContainer}>
+                <Text style={styles.resultsText}>You scored {marks} out of {questions.length}.</Text>
+            </View>
+            )}
       </View>
     </ScrollView>
       );
@@ -206,6 +212,9 @@ const styles = StyleSheet.create({
       paddingHorizontal: 20,
       paddingVertical: 20,
     },
+    textContainer: {
+        marginBottom: 150,
+    },
     title: {
       fontSize: 30,
       fontWeight: 'bold',
@@ -216,11 +225,12 @@ const styles = StyleSheet.create({
       marginBottom: 10,
       lineHeight: 24,
     },
-    question: {
+    questionText: {
       fontSize: 18,
       fontWeight: 'bold',
       marginTop: 20,
       marginBottom: 10,
+      marginLeft: 10,
     },
     answerOption: {
       flexDirection: 'row',
@@ -228,13 +238,20 @@ const styles = StyleSheet.create({
       marginBottom: 10,
     },
     answerText: {
-      fontSize: 16,
+      fontSize: 18,
       marginLeft: 10,
+      marginRight: 30,
+    },
+    options: {
+        backgroundColor: 'rgba(102, 102, 102, 0.2)',
+        borderRadius: 10,
     },
     submitButton: {
-      backgroundColor: '#4C1AC4',
+      backgroundColor: 'rgba(23, 23, 23, 0.24)',
+      borderColor: 'linear-gradient(to bottom, #FE7D05, #CE13ED, #00FFF0, #0066FF)',
+      shadowColor: 'rgba(0, 0, 0, 0.25)',
       padding: 10,
-      borderRadius: 5,
+      borderRadius: 40,
       marginTop: 20,
     },
     submitButtonText: {
@@ -243,7 +260,6 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       textAlign: 'center',
     },
-    
 });  
 
 export default Lesson;

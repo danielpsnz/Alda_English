@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, View, Text } from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Text, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 import Card from '../components/Card';
@@ -9,6 +9,7 @@ export default function Exams() {
 
   return (
     <View style={styles.examsContainer}>
+       <ImageBackground source={require('../../assets/images/Exams.png')} style={styles.backgroundImage}>
       <View>
           <Text style={styles.title}>Master your exam</Text>
       </View>
@@ -42,6 +43,7 @@ export default function Exams() {
           />
         </TouchableOpacity>
       </View>
+      </ImageBackground>
     </View>
   );
 }
@@ -52,6 +54,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#CBE3FF',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    width: '100%',
+    height: '100%',
   },
   title: {
     fontFamily: 'Arial',

@@ -14,37 +14,37 @@ const Reading = () => {
         <TouchableOpacity style={styles.readingCard} onPress={() => navigation.navigate('ReadingLesson1')}>
           <Card
             title="Lesson 1"
-            colors={['#4C1AC4', '#38AAE4']}
+            colors={['#CBE3FF', '#CBE3FF']}
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.readingCard} onPress={() => navigation.navigate('Writing')}>
           <Card
             title="Lesson 1"
-            colors={['#4C1AC4', '#38AAE4']}
+            colors={['#CBE3FF', '#CBE3FF']}
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.readingCard} onPress={() => navigation.navigate('Writing')}>
           <Card
             title="Lesson 1"
-            colors={['#4C1AC4', '#38AAE4']}
+            colors={['#CBE3FF', '#CBE3FF']}
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.readingCard} onPress={() => navigation.navigate('Writing')}>
           <Card
             title="Lesson 1"
-            colors={['#4C1AC4', '#38AAE4']}
+            colors={['#CBE3FF', '#CBE3FF']}
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.readingCard} onPress={() => navigation.navigate('Writing')}>
           <Card
             title="Lesson 1"
-            colors={['#4C1AC4', '#38AAE4']}
+            colors={['#CBE3FF', '#CBE3FF']}
           />
         </TouchableOpacity>
         <TouchableOpacity style={styles.readingCard} onPress={() => navigation.navigate('Writing')}>
           <Card
             title="Lesson 1"
-            colors={['#4C1AC4', '#38AAE4']}
+            colors={['#CBE3FF', '#CBE3FF']}
           />
         </TouchableOpacity>
         </View>

@@ -1,68 +1,52 @@
 import React from 'react';
-import { StyleSheet, TouchableOpacity, Text, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View, Text, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
-import { StatusBar } from 'expo-status-bar';
 
 import Card from '../components/Card';
-import Reading from './Exams/Reading';
-import Listening from './Exams/Listening';
-import Writing from './Exams/Writing';
-import UseOfEnglish from './Exams/UseOfEnglish';
 
-const Stack = createStackNavigator();
-
-const Practice = () => {
+export default function Exams() {
   const navigation = useNavigation();
+
   return (
     <View style={styles.examsContainer}>
-      <TouchableOpacity onPress={() => navigation.navigate('Reading')}>
-        <Card
-          title="Reading"
-          description="This is a card with a linear gradient background."
-          colors={['#4C1AC4', '#38AAE4']}
-        />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('UseOfEnglish')}>
-        <Card
-          title="Use of English"
-          description="This is a card with a linear gradient background."
-          colors={['#4C1AC4', '#38AAE4']}
-        />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Listening')}>
-        <Card
-          title="Listening"
-          description="This is a card with a linear gradient background."
-          colors={['#4C1AC4', '#38AAE4']}
-        />
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Writing')}>
-        <Card
-          title="Writing"
-          description="This is a card with a linear gradient background."
-          colors={['#4C1AC4', '#38AAE4']}
-        />
-      </TouchableOpacity>
-      <StatusBar style="auto" />
+       <ImageBackground source={require('../../assets/images/Practice.png')} style={styles.backgroundImage}>
+      <View>
+          <Text style={styles.title}>Master your exam</Text>
+      </View>
+      <View>
+        <TouchableOpacity onPress={() => navigation.navigate('Reading')}>
+          <Card
+            title="Reading"
+            description="This is a card with a linear gradient background."
+            colors={['#4C1AC4', '#38AAE4']}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('UseOfEnglish')}>
+          <Card
+            title="Use of English"
+            description="This is a card with a linear gradient background."
+            colors={['#4C1AC4', '#38AAE4']}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Listening')}>
+          <Card
+            title="Listening"
+            description="This is a card with a linear gradient background."
+            colors={['#4C1AC4', '#38AAE4']}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Writing')}>
+          <Card
+            title="Writing"
+            description="This is a card with a linear gradient background."
+            colors={['#4C1AC4', '#38AAE4']}
+          />
+        </TouchableOpacity>
+      </View>
+      </ImageBackground>
     </View>
   );
-};
-
-const ExamsStack = () => {
-  return (
-    <NavigationContainer independent={true}>
-      <Stack.Navigator initialRouteName="Exams">
-        <Stack.Screen name="Exams" component={Practice} />
-        <Stack.Screen name="Reading" component={Reading} />
-        <Stack.Screen name="Listening" component={Listening} />
-        <Stack.Screen name="UseOfEnglish" component={UseOfEnglish} />
-        <Stack.Screen name="Writing" component={Writing} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-};
+}
 
 const styles = StyleSheet.create({
   examsContainer: {
@@ -71,6 +55,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    width: '100%',
+    height: '100%',
+  },
+  title: {
+    fontFamily: 'Arial',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    fontSize: 32,
+    textAlign: 'center',
+    top: 0,
+    color: ['#00D1FF', '#B932DB'],
+  },
 });
-
-export default ExamsStack;

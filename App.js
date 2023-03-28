@@ -30,7 +30,7 @@ export default function App() {
           <Stack.Screen name="Audio" component={AudioScreen} />
           <Stack.Screen name="Settings" component={SettingsScreen} />
           <Stack.Screen name="Reading" component={Reading} />
-          <Stack.Screen name="ReadingLesson1" component={ReadingLesson1} options={{title: 'Lesson 1'}} />
+          <Stack.Screen name="ReadingLesson1" component={ReadingLesson1} options={{title: 'Lesson 1'}}/>
           <Stack.Screen name="Listening" component={Listening} />
           <Stack.Screen name="UseOfEnglish" component={UseOfEnglish} />
           <Stack.Screen name="Writing" component={Writing} />
