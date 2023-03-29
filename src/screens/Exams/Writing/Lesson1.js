@@ -8,7 +8,7 @@ const Lesson = () => {
 
   const handleTextCorrection = async () => {
     const configuration = new Configuration({
-      apiKey: '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',
+      apiKey: '',
     });
     const openai = new OpenAIApi(configuration);
 

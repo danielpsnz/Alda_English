@@ -5,7 +5,7 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../../assets/images/Home.png')} style={styles.backgroundImage}>
-      <Text style={styles.text}>Home Screen</Text>
+      <Text style={styles.text}>Welcome to Advanced Certificate in English</Text>
       </ImageBackground>
     </View>
   );
@@ -25,7 +25,9 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   text: {
-    fontSize: 20,
+    fontSize: 29,
+    marginTop: 15,
+    marginLeft: 15,
     fontWeight: 'bold',
   },
 });

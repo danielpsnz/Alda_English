@@ -18,6 +18,7 @@ import Writing from './src/screens/Exams/Writing';
 import WritingLesson1 from './src/screens/Exams/Writing/Lesson1';
 
 import UseOfEnglish from './src/screens/Exams/UseOfEnglish';
+import UOELesson1 from './src/screens/Exams/UseOfEnglish/Lesson1';
 
 const Stack = createStackNavigator();
 
@@ -35,6 +36,7 @@ export default function App() {
           <Stack.Screen name="ReadingLesson1" component={ReadingLesson1} options={{title: 'Lesson 1'}}/>
           <Stack.Screen name="Listening" component={Listening} />
           <Stack.Screen name="UseOfEnglish" component={UseOfEnglish} />
+          <Stack.Screen name="UOELesson1" component={UOELesson1} options={{title: 'Lesson 1'}}/>
           <Stack.Screen name="Writing" component={Writing} />
           <Stack.Screen name="WritingLesson1" component={WritingLesson1} options={{title: 'Lesson 1'}}/>
         </Stack.Navigator>

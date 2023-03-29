@@ -1,6 +1,7 @@
-import React from 'react';
-import { View, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import React, { useState } from 'react';
+import { View, StyleSheet, TouchableOpacity, ScrollView, ImageBackground, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { FontAwesome } from '@expo/vector-icons';
 
 import Card from '../../components/ExerciseCard';
 
@@ -9,46 +10,18 @@ const Reading = () => {
 
   return (
     <View style={styles.readingContainer}>
+      <ImageBackground source={require('../../../assets/images/Exams.png')} style={styles.backgroundImage}>
         <ScrollView style={styles.container}>
           <View style={styles.separation}>
-        <TouchableOpacity style={styles.readingCard} onPress={() => navigation.navigate('ReadingLesson1')}>
-          <Card
-            title="Lesson 1"
-            colors={['#CBE3FF', '#CBE3FF']}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.readingCard} onPress={() => navigation.navigate('Writing')}>
-          <Card
-            title="Lesson 1"
-            colors={['#CBE3FF', '#CBE3FF']}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.readingCard} onPress={() => navigation.navigate('Writing')}>
-          <Card
-            title="Lesson 1"
-            colors={['#CBE3FF', '#CBE3FF']}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.readingCard} onPress={() => navigation.navigate('Writing')}>
-          <Card
-            title="Lesson 1"
-            colors={['#CBE3FF', '#CBE3FF']}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.readingCard} onPress={() => navigation.navigate('Writing')}>
-          <Card
-            title="Lesson 1"
-            colors={['#CBE3FF', '#CBE3FF']}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.readingCard} onPress={() => navigation.navigate('Writing')}>
-          <Card
-            title="Lesson 1"
-            colors={['#CBE3FF', '#CBE3FF']}
-          />
-        </TouchableOpacity>
-        </View>
+            <TouchableOpacity style={styles.readingCard} onPress={() => navigation.navigate('ReadingLesson1')}>
+              <Card
+                title="Lesson 1"
+                colors={['#CBE3FF', '#CBE3FF']}
+              />
+              </TouchableOpacity>
+          </View>
         </ScrollView>
+      </ImageBackground>
     </View>
   );
 };
