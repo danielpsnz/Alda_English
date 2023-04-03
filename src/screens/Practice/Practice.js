@@ -2,39 +2,45 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity, View, Text, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import Card from '../components/Card';
+import Card from '../../components/Card/Card';
 
 export default function Exams() {
   const navigation = useNavigation();
 
   return (
     <View style={styles.examsContainer}>
-       <ImageBackground source={require('../../assets/images/Exams.png')} style={styles.backgroundImage}>
+       <ImageBackground source={require('../../assets/images/Practice.png')} style={styles.backgroundImage}>
       <View>
           <Text style={styles.title}>Master your exam</Text>
       </View>
       <View>
-        <TouchableOpacity onPress={() => navigation.navigate('Reading')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Grammar')}>
           <Card
-            title="Reading"
+            title="Grammar"
             colors={['#4C1AC4', '#38AAE4']}
           />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('UseOfEnglish')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Vocabulary')}>
           <Card
-            title="Use of English"
+            title="Vocabulary"
             colors={['#4C1AC4', '#38AAE4']}
           />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Listening')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Collocations')}>
           <Card
-            title="Listening"
+            title="Collocations"
             colors={['#4C1AC4', '#38AAE4']}
           />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Writing')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Idioms')}>
           <Card
-            title="Writing"
+            title="Idioms"
+            colors={['#4C1AC4', '#38AAE4']}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Phrasal Verbs')}>
+          <Card
+            title="Phrasal Verbs"
             colors={['#4C1AC4', '#38AAE4']}
           />
         </TouchableOpacity>
@@ -58,10 +64,11 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   title: {
-    fontWeight: 'bold',
-    fontSize: 29,
-    marginTop: 15,
-    marginLeft: 15,
+    fontFamily: 'Arial',
+    fontStyle: 'normal',
+    fontWeight: '700',
+    fontSize: 32,
+    textAlign: 'center',
     top: 0,
     color: ['#00D1FF', '#B932DB'],
   },

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import { RadioButton } from 'react-native-paper';
-import data from './Reading.json';
+import data from '../ReadingPart1.json';
 
 const Lesson = () => {
     const [selectedAnswers, setSelectedAnswers] = useState([]);

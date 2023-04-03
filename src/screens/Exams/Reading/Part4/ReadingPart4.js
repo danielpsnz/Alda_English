@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
-import { View, StyleSheet, TouchableOpacity, ScrollView, ImageBackground, Text } from 'react-native';
+import React from 'react';
+import { View, StyleSheet, TouchableOpacity, ScrollView, ImageBackground } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { FontAwesome } from '@expo/vector-icons';
 
-import Card from '../../components/ExerciseCard';
+import Card from '../../../../components/Card/ExerciseCard';
 
-const Reading = () => {
+const ReadingPart1 = () => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.readingContainer}>
-      <ImageBackground source={require('../../../assets/images/Exams.png')} style={styles.backgroundImage}>
+      <ImageBackground source={require('../../../../assets/images/Exams.png')} style={styles.backgroundImage}>
         <ScrollView style={styles.container}>
           <View style={styles.separation}>
-            <TouchableOpacity style={styles.readingCard} onPress={() => navigation.navigate('ReadingLesson1')}>
+            <TouchableOpacity style={styles.readingCard} onPress={() => navigation.navigate('ReadingPart4Lesson1')}>
               <Card
                 title="Lesson 1"
                 colors={['#CBE3FF', '#CBE3FF']}
@@ -49,4 +48,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Reading;
+export default ReadingPart1;

@@ -4,21 +4,26 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Navbar from './src/components/Navbar';
-import HomeScreen from './src/screens/HomeScreen';
-import PracticeScreen from './src/screens/PracticeScreen';
-import Navigation from './src/screens/ExamsScreen';
-import AudioScreen from './src/screens/AudioScreen';
-import SettingsScreen from './src/screens/SettingsScreen';
 
-import Reading from './src/screens/Exams/Reading';
-import ReadingLesson1 from './src/screens/Exams/Reading/Lesson1';
+import Audio from './src/screens/Audio/Audio';
 
-import Listening from './src/screens/Exams/Listening';
-import Writing from './src/screens/Exams/Writing';
-import WritingLesson1 from './src/screens/Exams/Writing/Lesson1';
+import Exams from './src/screens/Exams/Exams';
 
-import UseOfEnglish from './src/screens/Exams/UseOfEnglish';
-import UOELesson1 from './src/screens/Exams/UseOfEnglish/Lesson1';
+import Reading from './src/screens/Exams/Reading/Reading';
+import ReadingPart1 from './src/screens/Exams/Reading/Part1/ReadingPart1';
+import ReadingPart1Lesson1 from './src/screens/Exams/Reading/Part1/Lessons/Lesson1';
+import ReadingPart2 from './src/screens/Exams/Reading/Part2/ReadingPart2';
+import ReadingPart3 from './src/screens/Exams/Reading/Part3/ReadingPart3';
+import ReadingPart4 from './src/screens/Exams/Reading/Part4/ReadingPart4';
+
+import Writing from './src/screens/Exams/Writing/Writing';
+import WritingPart1Lesson1 from './src/screens/Exams/Writing/Part1/Lessons/Lesson1';
+
+import UseOfEnglish from './src/screens/Exams/UseOfEnglish/UseOfEnglish';
+
+import Home from './src/screens/Home/Home';
+import Practice from './src/screens/Practice/Practice';
+import Settings from './src/screens/Settings/Settings';
 
 const Stack = createStackNavigator();
 
@@ -27,18 +32,91 @@ export default function App() {
     <NavigationContainer>
       <View style={styles.container}>
         <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Practice" component={PracticeScreen} />
-          <Stack.Screen name="Exams" component={Navigation} />
-          <Stack.Screen name="Audio" component={AudioScreen} />
-          <Stack.Screen name="Settings" component={SettingsScreen} />
-          <Stack.Screen name="Reading" component={Reading} />
-          <Stack.Screen name="ReadingLesson1" component={ReadingLesson1} options={{title: 'Lesson 1'}}/>
-          <Stack.Screen name="Listening" component={Listening} />
-          <Stack.Screen name="UseOfEnglish" component={UseOfEnglish} />
-          <Stack.Screen name="UOELesson1" component={UOELesson1} options={{title: 'Lesson 1'}}/>
-          <Stack.Screen name="Writing" component={Writing} />
-          <Stack.Screen name="WritingLesson1" component={WritingLesson1} options={{title: 'Lesson 1'}}/>
+          <Stack.Screen name="Home" component={Home} options={{
+            title: 'Home',
+            headerStyle: {
+              backgroundColor: '#CBE3FF',
+            },
+            }}/>
+          <Stack.Screen name="Practice" component={Practice} options={{
+            title: 'Practice your English!',
+            headerStyle: {
+              backgroundColor: '#CBE3FF',
+            },
+            }}/>
+          <Stack.Screen name="Exams" component={Exams} options={{
+            title: 'Exams',
+            headerStyle: {
+              backgroundColor: '#CBE3FF',
+            },
+            }}/>
+          <Stack.Screen name="Audio" component={Audio} options={{
+            title: 'Audio',
+            headerStyle: {
+              backgroundColor: '#CBE3FF',
+            },
+            }}/>
+          <Stack.Screen name="Settings" component={Settings} options={{
+            title: 'Settings',
+            headerStyle: {
+              backgroundColor: '#CBE3FF',
+            },
+            }}/>
+
+          <Stack.Screen name="Reading" component={Reading} options={{
+            title: 'Reading',
+            headerStyle: {
+              backgroundColor: '#CBE3FF',
+            },
+            }}/>
+          <Stack.Screen name="ReadingPart1" component={ReadingPart1} options={{
+            title: 'Reading',
+            headerStyle: {
+              backgroundColor: '#CBE3FF',
+            },
+          }}/>
+          <Stack.Screen name="ReadingPart1Lesson1" component={ReadingPart1Lesson1} options={{
+            title: 'Multiple Choice',
+            headerStyle: {
+              backgroundColor: '#CBE3FF',
+            },
+            }}/>
+                    <Stack.Screen name="ReadingPart2" component={ReadingPart2} options={{
+            title: 'Reading',
+            headerStyle: {
+              backgroundColor: '#CBE3FF',
+            },
+          }}/>
+                    <Stack.Screen name="ReadingPart3" component={ReadingPart3} options={{
+            title: 'Reading',
+            headerStyle: {
+              backgroundColor: '#CBE3FF',
+            },
+          }}/>
+                    <Stack.Screen name="ReadingPart4" component={ReadingPart4} options={{
+            title: 'Reading',
+            headerStyle: {
+              backgroundColor: '#CBE3FF',
+            },
+          }}/>
+          <Stack.Screen name="UseOfEnglish" component={UseOfEnglish} options={{
+            title: 'Home',
+            headerStyle: {
+              backgroundColor: '#CBE3FF',
+            },
+            }}/>
+          <Stack.Screen name="Writing" component={Writing} options={{
+            title: 'Home',
+            headerStyle: {
+              backgroundColor: '#CBE3FF',
+            },
+            }}/>
+          <Stack.Screen name="WritingPart1Lesson1" component={WritingPart1Lesson1} options={{
+            title: 'Home',
+            headerStyle: {
+              backgroundColor: '#CBE3FF',
+            },
+            }}/>
         </Stack.Navigator>
         <Navbar />
       </View>
@@ -52,4 +130,3 @@ const styles = StyleSheet.create({
     backgroundColor: '#CBE3FF',
   },
 });
-

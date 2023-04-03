@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity, View, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import Card from '../../components/Card';
+import Card from '../../../components/Card/Card';
 
 export default function UseOfEnglish() {
   const navigation = useNavigation();

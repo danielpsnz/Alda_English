@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import Card from '../../components/ExerciseCard';
+import Card from '../../../components/Card/ExerciseCard';
 
 const Reading = () => {
   const navigation = useNavigation();
@@ -11,7 +11,7 @@ const Reading = () => {
     <View style={styles.readingContainer}>
         <ScrollView style={styles.container}>
           <View style={styles.separation}>
-        <TouchableOpacity style={styles.readingCard} onPress={() => navigation.navigate('WritingLesson1')}>
+        <TouchableOpacity style={styles.readingCard} onPress={() => navigation.navigate('WritingPart1Lesson1')}>
           <Card
             title="Lesson 1"
             colors={['#CBE3FF', '#CBE3FF']}

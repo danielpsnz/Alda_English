@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
-const ExerciseCard = ({ title, description, colors, onPress }) => {
+const ExerciseCard = ({ title, description, colors }) => {
   return (
       <View style={styles.card}>
         <LinearGradient

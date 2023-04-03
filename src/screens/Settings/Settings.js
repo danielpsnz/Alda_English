@@ -1,11 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, StyleSheet, ImageBackground, ScrollView } from 'react-native';
 
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <ImageBackground source={require('../../assets/images/Settings.png')} style={styles.backgroundImage}>
-      <Text style={styles.text}>Home Screen</Text>
+      <ScrollView style={styles.container}>
+        <View style={styles.separation}>
+        </View>
+      </ScrollView>
       </ImageBackground>
     </View>
   );
@@ -13,20 +16,15 @@ const HomeScreen = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#CBE3FF',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  backgroundImage: {
-    flex: 1,
-    resizeMode: 'cover',
-    width: '100%',
+    backgroundColor: 'rgba(102, 102, 102, 0.4)',
+    borderRadius: 20,
+    elevation: 10,
+    width: 370,
     height: '100%',
+    marginTop: 10,
   },
-  text: {
-    fontSize: 20,
-    fontWeight: 'bold',
+  separation: {
+    marginTop: 10,
   },
 });
 
