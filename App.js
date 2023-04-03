@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { NativeBaseProvider, Box } from "native-base";
 
 import Navbar from './src/components/Navbar';
 
@@ -22,13 +23,20 @@ import WritingPart1Lesson1 from './src/screens/Exams/Writing/Part1/Lessons/Lesso
 import UseOfEnglish from './src/screens/Exams/UseOfEnglish/UseOfEnglish';
 
 import Home from './src/screens/Home/Home';
+
+
 import Practice from './src/screens/Practice/Practice';
+
+import Grammar from './src/screens/Practice/Grammar/Grammar';
+import Tenses from './src/screens/Practice/Grammar/Lessons/Tenses';
+
 import Settings from './src/screens/Settings/Settings';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
+    <NativeBaseProvider>
     <NavigationContainer>
       <View style={styles.container}>
         <Stack.Navigator initialRouteName="Home">
@@ -44,6 +52,20 @@ export default function App() {
               backgroundColor: '#CBE3FF',
             },
             }}/>
+          <Stack.Screen name="Grammar" component={Grammar} options={{
+            title: 'Grammar',
+            headerStyle: {
+              backgroundColor: '#CBE3FF',
+            },
+            }}/>
+          <Stack.Screen name="Tenses" component={Tenses} options={{
+            title: 'Tenses',
+            headerStyle: {
+              backgroundColor: '#CBE3FF',
+            },
+            }}/>
+
+
           <Stack.Screen name="Exams" component={Exams} options={{
             title: 'Exams',
             headerStyle: {
@@ -121,6 +143,7 @@ export default function App() {
         <Navbar />
       </View>
     </NavigationContainer>
+    </NativeBaseProvider>
   );
 }
 
